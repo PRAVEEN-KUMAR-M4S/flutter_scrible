@@ -88,7 +88,16 @@ io.on('connection',(socket)=>{
     } catch (error) {
         console.log(error);
     }
+   });
+
+   //paint 
+
+   socket.on('paint',({details,roomName})=>{
+    io.to(roomName).emit('points',{details:details});
    })
+
+
+
 });
 
 
